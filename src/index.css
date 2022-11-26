@@ -13,11 +13,25 @@ h2 {
 
 a {
   text-decoration: none;
-  display: block;
+  display: inline-block;
+}
+
+#specifying-attr1 {
   text-align: center;
 }
 
 img {
   display: block;
   margin: auto;
+}
+
+.UserInfo-name,
+.Comment-text,
+.Comment-date {
+  text-align: center;
+}
+
+span {
+  display: table;
+  margin: 0 auto;
 }

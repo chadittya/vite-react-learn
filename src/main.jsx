@@ -6,6 +6,10 @@ import { formatName } from "./assets/formatName.service";
 import { getGreeting } from "./assets/getGreeting.service";
 import { tick } from "./assets/updatingRendered.service";
 import { Welcome } from "./assets/renderingComponent.service";
+import { ComposingWelcome } from "./assets/app.service";
+import { Comment } from "./assets/comment.service";
+import { sum } from "./assets/sum.service";
+import { withdraw } from "./assets/withdraw.service";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<h1>Hello, World!!!</h1>);
@@ -91,3 +95,53 @@ const renderingComponent = ReactDOM.createRoot(
 const element10 = <Welcome name="Galih" />;
 
 renderingComponent.render(element10);
+
+// composing component
+function App() {
+  return (
+    <div>
+      <ComposingWelcome name="Candra" />
+      <ComposingWelcome name="Aditya" />
+      <ComposingWelcome name="Dimas" />
+    </div>
+  );
+}
+const cWelcome = ReactDOM.createRoot(
+  document.getElementById("composing-component")
+);
+cWelcome.render(App());
+
+// extracting component
+const comment = {
+  date: new Date(),
+  text: `I'm enjoying making React!!`,
+  author: {
+    name: "Hello Kitty",
+    avatarUrl: "http://placekitten.com/g/64/64",
+  },
+};
+
+const extractingComponent = ReactDOM.createRoot(
+  document.getElementById("extracting-component")
+);
+extractingComponent.render(
+  <Comment date={comment.date} text={comment.text} author={comment.author} />
+);
+
+// props are read-only
+const propsAreReadOnly = ReactDOM.createRoot(
+  document.getElementById("props-are-read-only")
+);
+
+propsAreReadOnly.render(sum(3, 2));
+
+const account = {
+  name: "Elon",
+  total: 10000,
+};
+
+const propsAreReadOnly2 = ReactDOM.createRoot(
+  document.getElementById("props-are-read-only2")
+);
+
+propsAreReadOnly2.render(withdraw(account.name, account.total, 5000));
