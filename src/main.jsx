@@ -10,6 +10,7 @@ import { ComposingWelcome } from "./assets/app.service";
 import { Comment } from "./assets/comment.service";
 import { sum } from "./assets/sum.service";
 import { withdraw } from "./assets/withdraw.service";
+import { Clock } from "./assets/clock.service";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<h1>Hello, World!!!</h1>);
@@ -145,3 +146,10 @@ const propsAreReadOnly2 = ReactDOM.createRoot(
 );
 
 propsAreReadOnly2.render(withdraw(account.name, account.total, 5000));
+
+// state and lifecycle
+export const stateNLifecycle = ReactDOM.createRoot(
+  document.getElementById("state-n-lifecycle")
+);
+
+stateNLifecycle.render(<Clock />);
